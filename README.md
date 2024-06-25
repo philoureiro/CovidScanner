@@ -1,7 +1,4 @@
-# Apresentação do Projeto: Classificação de Raios X para COVID-19
-
-## Introdução e Descrição Geral do Projeto
-Olá a todos, meu nome é [Seu Nome]. Hoje vou apresentar um projeto que desenvolvemos para processar imagens de raios X de pacientes com e sem COVID-19, utilizando um descritor de histograma de escala de cinza e classificadores de aprendizado de máquina. O objetivo do projeto é identificar automaticamente a presença de COVID-19 em imagens de raios X, analisando as imagens e fazendo previsões.
+# Algoritmo de identificação de paciente com COVID-19 utilizando Inteligência Artificial.
 
 ## Equipe
 - Guilheme Antunes Gonçalves dos Santos
@@ -50,6 +47,18 @@ def trainSGDClassifier(trainData, trainLabels):
     return sgd_pipeline
 ```
 
+### Modificação para RidgeClassifier:
+```python
+def trainRidgeClassifier(trainData,trainLabels):
+    print('[INFO] Training the Ridge Classifier model...')
+    ridge_classifier = RidgeClassifier()
+    startTime = time.time()
+    ridge_classifier.fit(trainData, trainLabels)
+    elapsedTime = round(time.time() - startTime,2)
+    print(f'[INFO] Training done in {elapsedTime}s')
+    return ridge_classifier
+```
+
 ## Diferença entre SGD e Ridge Classifiers
 ### SGD (Stochastic Gradient Descent):
 - Método de aprendizado online que atualiza os parâmetros do modelo iterativamente.
@@ -65,5 +74,3 @@ def trainSGDClassifier(trainData, trainLabels):
 ### Resumo:
 Utilizamos técnicas avançadas de processamento de imagens e aprendizado de máquina para identificar a presença de COVID-19 em imagens de raios X. Os classificadores diferentes mostraram performances variadas, com o Ridge Classifier apresentando melhores resultados.
 
-### Agradecimento:
-Agradeço a todos pela atenção. Estou à disposição para perguntas.
